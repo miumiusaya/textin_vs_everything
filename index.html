@@ -303,7 +303,7 @@ body {
         <div class="comp-card featured" style="grid-column:span 3;">
           <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
             <div><span class="tag" style="margin-bottom:8px;display:inline-block;">企业级产品</span><div style="font-size:1.2rem;font-weight:800;color:#0F172A;">TextIn xParse</div><div style="font-size:0.875rem;color:#2563EB;font-weight:500;">合合信息 · 商业闭源</div></div>
-            <div style="display:flex;flex-wrap:wrap;gap:6px;"><span class="tag">标准 HTTP API</span><span class="tag">私有化部署</span><span class="tag">企业级 SLA</span><span class="tag">14 种+格式</span></div>
+            <div style="display:flex;flex-wrap:wrap;gap:6px;"><span class="tag">标准 HTTP API</span><span class="tag">私有化部署</span><span class="tag">企业级 SLA</span><span class="tag">16 种格式</span></div>
           </div>
         </div>
         <div class="comp-card"><div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;"><div style="font-size:0.95rem;font-weight:700;color:#0F172A;">PaddleOCR</div><span class="tag tag-gray">开源</span></div><div style="font-size:0.78rem;color:#64748B;margin-bottom:8px;">百度 · PaddleOCR-VL-1.5</div><div style="font-size:0.8rem;color:#475569;">需自建服务，工程化程度较低</div></div>
@@ -340,10 +340,10 @@ body {
               <tr><td>文档支持页数</td><td class="textin-td" style="text-align:center;font-weight:700;color:#2563EB;">5000 页</td><td style="text-align:center;color:#64748B;">100 页</td><td style="text-align:center;color:#64748B;">600 页</td></tr>
               <tr><td>文件大小限制</td><td class="textin-td" style="text-align:center;font-weight:700;color:#2563EB;">500 M</td><td style="text-align:center;color:#64748B;">50 M</td><td style="text-align:center;color:#64748B;">200 M</td></tr>
               <tr><td>长图识别</td><td class="textin-td" style="text-align:center;"><span class="check">✔</span></td><td style="text-align:center;"><span class="cross">✘</span></td><td style="text-align:center;"><span class="cross">✘</span></td></tr>
-              <tr><td>支持文件格式数</td><td class="textin-td" style="text-align:center;font-weight:700;color:#2563EB;">14 种+</td><td style="text-align:center;color:#64748B;">5 种</td><td style="text-align:center;color:#64748B;">多种（不含 XLS/CSV）</td></tr>
+              <tr><td>支持文件格式数</td><td class="textin-td" style="text-align:center;font-weight:700;color:#2563EB;">16 种</td><td style="text-align:center;color:#64748B;">5 种</td><td style="text-align:center;color:#64748B;">多种（不含 XLS/CSV）</td></tr>
             </tbody>
           </table>
-          <div style="padding:10px 16px;font-size:0.72rem;color:#94A3B8;background:#FAFBFF;">TextIn 支持：pdf, doc/docx, xls/xlsx, ppt/pptx, txt, ofd, png, jpg, bmp, tiff, webp, html, mhtml, rtf 等</div>
+          <div style="padding:10px 16px;font-size:0.72rem;color:#94A3B8;background:#FAFBFF;">TextIn 支持 16 种格式：pdf, doc/docx, xls/xlsx, ppt/pptx, txt, ofd, png, jpg, bmp, tiff, webp, html, mhtml, rtf, eml, csv 等</div>
         </div>
         <!-- IMAGE -->
         <div id="ftab-image" class="ftab-content" style="display:none;overflow-x:auto;">
@@ -399,12 +399,13 @@ body {
     <section id="benchmarks" class="fade-in">
       <div class="section-eyebrow">性能测评</div>
       <h2 class="section-title">OmniDocBench 基准测评</h2>
-      <p class="section-lead">基于公开标准基准集，从文本识别、表格还原、表格结构、阅读顺序四个维度客观评测各产品模型性能。值越接近 1 越好。</p>
+      <p class="section-lead">基于公开标准基准集 OmniDocBench，从 text (ED)、table (TEDS)、table (TEDS-S)、reading_order (ED) 四个维度客观评测各产品模型性能。值越接近 1 越好。</p>
       <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:28px;">
-        <div style="display:flex;gap:12px;padding:14px;background:#fff;border:1px solid #E2E8F0;border-radius:10px;"><div style="width:4px;background:#2563EB;border-radius:99px;flex-shrink:0;"></div><div><div style="font-size:0.8rem;font-weight:700;color:#0F172A;margin-bottom:3px;">Text ED · 文本识别准确率</div><div style="font-size:0.75rem;color:#64748B;">文字识别是否准确，越接近 1 越好</div></div></div>
-        <div style="display:flex;gap:12px;padding:14px;background:#fff;border:1px solid #E2E8F0;border-radius:10px;"><div style="width:4px;background:#8B5CF6;border-radius:99px;flex-shrink:0;"></div><div><div style="font-size:0.8rem;font-weight:700;color:#0F172A;margin-bottom:3px;">Table TEDS · 表格还原完整性</div><div style="font-size:0.75rem;color:#64748B;">表格结构与内容是否完整还原</div></div></div>
-        <div style="display:flex;gap:12px;padding:14px;background:#fff;border:1px solid #E2E8F0;border-radius:10px;"><div style="width:4px;background:#0EA5E9;border-radius:99px;flex-shrink:0;"></div><div><div style="font-size:0.8rem;font-weight:700;color:#0F172A;margin-bottom:3px;">TEDS-S · 表格骨架识别</div><div style="font-size:0.75rem;color:#64748B;">行列关系是否正确识别</div></div></div>
-        <div style="display:flex;gap:12px;padding:14px;background:#fff;border:1px solid #E2E8F0;border-radius:10px;"><div style="width:4px;background:#059669;border-radius:99px;flex-shrink:0;"></div><div><div style="font-size:0.8rem;font-weight:700;color:#0F172A;margin-bottom:3px;">Reading Order · 阅读顺序</div><div style="font-size:0.75rem;color:#64748B;">多栏排版是否按正确顺序输出</div></div></div>
+        <div style="display:flex;gap:12px;padding:14px;background:#fff;border:1px solid #E2E8F0;border-radius:10px;"><div style="width:4px;background:#2563EB;border-radius:99px;flex-shrink:0;"></div><div><div style="font-size:0.8rem;font-weight:700;color:#0F172A;margin-bottom:3px;">text (ED) · 文本编辑距离（归一化）</div><div style="font-size:0.75rem;color:#64748B;">评测对象：段落、标题、列表等普通文本。用于评估文本识别是否准确，反映错字、漏字、多字、数字或标点偏差等问题。越接近 1 越好。</div></div></div>
+        <div style="display:flex;gap:12px;padding:14px;background:#fff;border:1px solid #E2E8F0;border-radius:10px;"><div style="width:4px;background:#8B5CF6;border-radius:99px;flex-shrink:0;"></div><div><div style="font-size:0.8rem;font-weight:700;color:#0F172A;margin-bottom:3px;">table (TEDS) · 表格树编辑距离相似度</div><div style="font-size:0.75rem;color:#64748B;">评测对象：文档中的表格。将预测表格与 GT 转为 HTML/树结构后对比，评估行列、合并关系及单元格内容是否正确还原。</div></div></div>
+        <div style="display:flex;gap:12px;padding:14px;background:#fff;border:1px solid #E2E8F0;border-radius:10px;"><div style="width:4px;background:#0EA5E9;border-radius:99px;flex-shrink:0;"></div><div><div style="font-size:0.8rem;font-weight:700;color:#0F172A;margin-bottom:3px;">table (TEDS-S) · 表格结构相似度</div><div style="font-size:0.75rem;color:#64748B;">评测对象：表格结构形态（行列组织、单元格跨度/合并关系），弱化单元格文本内容，专门评估表格"骨架"是否搭建正确。</div></div></div>
+        <div style="display:flex;gap:12px;padding:14px;background:#fff;border:1px solid #E2E8F0;border-radius:10px;"><div style="width:4px;background:#059669;border-radius:99px;flex-shrink:0;"></div><div><div style="font-size:0.8rem;font-weight:700;color:#0F172A;margin-bottom:3px;">reading_order (ED) · 阅读顺序编辑距离</div><div style="font-size:0.75rem;color:#64748B;">评测对象：页面内文本组件的阅读顺序。评估解析结果是否按照自然阅读逻辑组织内容，适用于双栏、多栏、图文混排等复杂版式。</div></div></div>
+        <div style="display:flex;gap:12px;padding:14px;background:#fff;border:1px solid #E2E8F0;border-radius:10px;grid-column:span 2;"><div style="width:4px;background:#F97316;border-radius:99px;flex-shrink:0;"></div><div><div style="font-size:0.8rem;font-weight:700;color:#0F172A;margin-bottom:3px;">formula (CDM) · 公式字符检测匹配</div><div style="font-size:0.75rem;color:#64748B;">评测对象：文档中的数学公式 / LaTeX 公式区域。不仅衡量公式中的字符是否识别正确，也衡量公式结构是否还原准确，如上下标、分式、根式、括号层级等。本次测评数据集暂未包含此维度。</div></div></div>
       </div>
       <div class="ind-tab-bar">
         <button class="ind-tab active" onclick="switchIndustry('finance',this)">金融行业</button>
@@ -535,20 +536,40 @@ body {
       <h2 class="section-title">总拥有成本（TCO）对比</h2>
       <p class="section-lead">统一口径：2 并发 + 双机高可用，性能目标 0.5~1.5s/页，50M 单文件百页级场景。</p>
       <div style="background:#F8FAFF;border:1px solid #E2E8F0;border-radius:10px;padding:14px 18px;margin-bottom:20px;font-size:0.8rem;color:#475569;line-height:1.8;">
-        <strong>成本估算依据：</strong>云上采用阿里云公开参考价（A10 24G 约 6000~8000 元/月）；本地物理机取 8 万/台（A10 24G）；年化采用 3 年折旧。<strong>运维系数：TextIn 10~20%，开源方案至少 50%。</strong>
+        <strong>成本估算依据：</strong>阿里云 A10 24G（GN7i 单卡）云服务器（32 核 / 188G 内存 / 24G 显存）包月价约 3,000 元，双机高可用年化硬件成本约 7.2 万元，综合部署成本 &gt; 10 万。参考：<a href="https://developer.aliyun.com/article/1714648" target="_blank" style="color:#2563EB;text-decoration:underline;">阿里云 GN7i 实例定价</a>。<strong>运维系数：TextIn 10~20%，开源方案至少 50%。</strong>
       </div>
-      <div style="overflow-x:auto;background:#fff;border:1px solid #E2E8F0;border-radius:12px;margin-bottom:18px;">
+
+      <h3 style="font-size:0.95rem;font-weight:700;color:#0F172A;margin-bottom:12px;margin-top:0;">私有化部署成本对比</h3>
+      <div style="overflow-x:auto;background:#fff;border:1px solid #E2E8F0;border-radius:12px;margin-bottom:14px;">
         <table class="cost-table" style="min-width:520px;">
-          <thead><tr><th>方案</th><th style="text-align:center;">云服务器/年</th><th style="text-align:center;">本地物理机</th><th style="text-align:center;">运维/年</th><th style="text-align:center;">综合总成本</th></tr></thead>
+          <thead><tr><th>方案</th><th style="text-align:center;">硬件成本</th><th style="text-align:center;">软件费用/年</th><th style="text-align:center;">运维/年</th><th style="text-align:center;">综合总成本/年</th></tr></thead>
           <tbody>
-            <tr style="background:#EFF6FF;"><td><strong style="color:#2563EB;">TextIn 私有化</strong> <span class="tag" style="margin-left:4px;font-size:0.65rem;">推荐</span></td><td style="text-align:center;">10~20 万</td><td style="text-align:center;">&gt; 20 万</td><td style="text-align:center;" class="good">1~2 万</td><td style="text-align:center;" class="highlight">&gt; 22 万/年</td></tr>
-            <tr><td>PaddleOCR</td><td style="text-align:center;">10~20 万</td><td style="text-align:center;">&gt; 20 万</td><td style="text-align:center;" class="warn">&gt; 10 万</td><td style="text-align:center;font-weight:600;">&gt; 30 万/年</td></tr>
-            <tr><td>MinerU</td><td style="text-align:center;">7~10 万</td><td style="text-align:center;">&gt; 15 万</td><td style="text-align:center;" class="warn">&gt; 10 万</td><td style="text-align:center;font-weight:600;">&gt; 25 万/年</td></tr>
+            <tr style="background:#EFF6FF;"><td><strong style="color:#2563EB;">TextIn 私有化</strong> <span class="tag" style="margin-left:4px;font-size:0.65rem;">完整交付</span></td><td style="text-align:center;">&gt; 10 万</td><td style="text-align:center;" class="warn">22 万</td><td style="text-align:center;" class="good">1~2 万</td><td style="text-align:center;" class="highlight">&gt; 33 万/年</td></tr>
+            <tr><td>PaddleOCR</td><td style="text-align:center;">&gt; 10 万</td><td style="text-align:center;">0</td><td style="text-align:center;" class="warn">&gt; 10 万</td><td style="text-align:center;font-weight:600;">&gt; 20 万/年</td></tr>
+            <tr><td>MinerU</td><td style="text-align:center;">&gt; 10 万</td><td style="text-align:center;">0</td><td style="text-align:center;" class="warn">&gt; 10 万</td><td style="text-align:center;font-weight:600;">&gt; 20 万/年</td></tr>
           </tbody>
         </table>
       </div>
-      <div style="background:#EFF6FF;border:1px solid #BFDBFE;border-radius:10px;padding:16px 18px;font-size:0.875rem;color:#1E40AF;line-height:1.8;">
-        开源方案通常需要常驻算法工程师进行服务化封装、监控告警、任务排队、升级兼容等工作（运维系数 50%+）；TextIn 私有化方案为完整交付形态，运维工作量极低（10~20%），<strong>长期综合成本明显低于开源方案</strong>。
+      <div style="background:#FFF7ED;border:1px solid #FED7AA;border-radius:10px;padding:12px 16px;font-size:0.8rem;color:#92400E;margin-bottom:28px;line-height:1.8;">
+        ⚠ TextIn 私有化软件年费 22 万元；开源方案免软件费，但需常驻算法工程师进行服务化封装、监控告警、任务排队、升级兼容等（运维系数 ≥ 50%），综合成本同样高昂。
+      </div>
+
+      <h3 style="font-size:0.95rem;font-weight:700;color:#0F172A;margin-bottom:12px;margin-top:0;">更优选择：TextIn xParse 公有云服务</h3>
+      <div style="background:linear-gradient(135deg,#EFF6FF 0%,#F0FDF4 100%);border:2px solid #2563EB;border-radius:14px;padding:24px;">
+        <div style="display:flex;align-items:flex-start;gap:20px;flex-wrap:wrap;margin-bottom:16px;">
+          <div style="flex:1;min-width:180px;">
+            <div style="font-size:1.5rem;font-weight:800;color:#1D4ED8;margin-bottom:6px;">50 万页 · ¥21,000</div>
+            <div style="font-size:0.8rem;color:#1E40AF;font-weight:500;">≈ 0.042 元/页 · 无需部署 · 即开即用</div>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:10px;">
+            <div style="background:#DBEAFE;border-radius:10px;padding:10px 16px;text-align:center;min-width:80px;"><div style="font-size:1.05rem;font-weight:800;color:#1D4ED8;">1s / 10页</div><div style="font-size:0.7rem;color:#3B82F6;margin-top:2px;">解析速度</div></div>
+            <div style="background:#D1FAE5;border-radius:10px;padding:10px 16px;text-align:center;min-width:80px;"><div style="font-size:1.05rem;font-weight:800;color:#065F46;">高并发</div><div style="font-size:0.7rem;color:#059669;margin-top:2px;">弹性支持</div></div>
+            <div style="background:#F0FDF4;border-radius:10px;padding:10px 16px;text-align:center;min-width:80px;"><div style="font-size:1.05rem;font-weight:800;color:#065F46;">¥0</div><div style="font-size:0.7rem;color:#059669;margin-top:2px;">运维成本</div></div>
+          </div>
+        </div>
+        <div style="padding-top:14px;border-top:1px solid #BFDBFE;font-size:0.82rem;color:#1E40AF;line-height:1.8;">
+          相比任意私有化部署方案（&gt; 20 万元/年起），<strong>公有云服务成本可降低 90% 以上</strong>，无硬件投入、无运维负担，尤其适合中小体量业务或试用阶段快速验证。
+        </div>
       </div>
     </section>
 
@@ -566,7 +587,7 @@ body {
         <div style="display:flex;gap:14px;padding:18px;background:#fff;border:1px solid #E2E8F0;border-radius:12px;"><div style="width:34px;height:34px;background:#EFF6FF;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" width="17" height="17"><path d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/></svg></div><div><div style="font-size:0.875rem;font-weight:700;color:#0F172A;margin-bottom:4px;">任意复杂版式</div><div class="prose">语义完整段落，按阅读顺序还原</div></div></div>
         <div style="display:flex;gap:14px;padding:18px;background:#fff;border:1px solid #E2E8F0;border-radius:12px;"><div style="width:34px;height:34px;background:#EFF6FF;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" width="17" height="17"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div><div><div style="font-size:0.875rem;font-weight:700;color:#0F172A;margin-bottom:4px;">高精度坐标还原</div><div class="prose">页面、元素、字符级坐标数据</div></div></div>
         <div style="display:flex;gap:14px;padding:18px;background:#fff;border:1px solid #E2E8F0;border-radius:12px;"><div style="width:34px;height:34px;background:#EFF6FF;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" width="17" height="17"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg></div><div><div style="font-size:0.875rem;font-weight:700;color:#0F172A;margin-bottom:4px;">强大预处理工具</div><div class="prose">水印、弯曲、模糊、拍照件均可处理</div></div></div>
-        <div style="display:flex;gap:14px;padding:18px;background:#fff;border:1px solid #E2E8F0;border-radius:12px;"><div style="width:34px;height:34px;background:#EFF6FF;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" width="17" height="17"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg></div><div><div style="font-size:0.875rem;font-weight:700;color:#0F172A;margin-bottom:4px;">开发者友好</div><div class="prose">支持 FastGPT、Coze、CherryStudio</div></div></div>
+        <div style="display:flex;gap:14px;padding:18px;background:#fff;border:1px solid #E2E8F0;border-radius:12px;"><div style="width:34px;height:34px;background:#EFF6FF;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" width="17" height="17"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg></div><div><div style="font-size:0.875rem;font-weight:700;color:#0F172A;margin-bottom:4px;">开发者友好</div><div class="prose">支持 FastGPT、Coze、CherryStudio、LangChain、Dify、HiAgent、RAGflow</div></div></div>
       </div>
 
       <h3 style="font-size:1.05rem;font-weight:700;color:#0F172A;margin-bottom:14px;">行业场景优势</h3>
@@ -634,9 +655,9 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') lbClose(); }
 
 // Benchmark
 const benchData = {
-  finance: { title:'金融行业 · 各模型评分对比', models:['TextIn-VLM-4.0.1','MinerU','PaddleOCR-VL1.5','GLM-OCR','DeepSeek-OCR'], colors:['#2563EB','#8B5CF6','#F97316','#059669','#EC4899'], text:[0.9202,0.9671,0.9435,0.9605,0.9618], table:[0.8936,0.8668,0.8447,0.7924,0.8060], teds_s:[0.9671,0.9408,0.9308,0.8698,0.8847], order:[0.9608,0.9493,0.9677,0.9599,0.9689] },
-  legal:   { title:'法律行业 · 各模型评分对比', models:['TextIn-VLM-4.0.1','MinerU','PaddleOCR-VL1.5','GLM-OCR','DeepSeek-OCR'], colors:['#2563EB','#8B5CF6','#F97316','#059669','#EC4899'], text:[0.9521,0.8573,0.7334,0.8155,0.8191], table:[0.7240,0.6225,0.6486,0.6810,0.5764], teds_s:[0.8713,0.7532,0.7642,0.8179,0.6707], order:[0.9140,0.8361,0.7972,0.7997,0.8053] },
-  medical: { title:'医疗行业 · 各模型评分对比', models:['TextIn-VLM-4.0.1','MinerU','PaddleOCR-VL1.5','GLM-OCR','DeepSeek-OCR'], colors:['#2563EB','#8B5CF6','#F97316','#059669','#EC4899'], text:[0.9107,0.8403,0.8079,0.8670,0.8637], table:[0.8257,0.8021,0.8028,0.8080,0.7625], teds_s:[0.8959,0.8576,0.8625,0.8639,0.8211], order:[0.8421,0.8066,0.8232,0.8269,0.8423] }
+  finance: { title:'金融行业 · 各模型评分对比', models:['TextIn xParse','MinerU','PaddleOCR-VL1.5','GLM-OCR','DeepSeek-OCR'], colors:['#2563EB','#8B5CF6','#F97316','#059669','#EC4899'], text:[0.9202,0.9671,0.9435,0.9605,0.9618], table:[0.8936,0.8668,0.8447,0.7924,0.8060], teds_s:[0.9671,0.9408,0.9308,0.8698,0.8847], order:[0.9608,0.9493,0.9677,0.9599,0.9689] },
+  legal:   { title:'法律行业 · 各模型评分对比', models:['TextIn xParse','MinerU','PaddleOCR-VL1.5','GLM-OCR','DeepSeek-OCR'], colors:['#2563EB','#8B5CF6','#F97316','#059669','#EC4899'], text:[0.9521,0.8573,0.7334,0.8155,0.8191], table:[0.7240,0.6225,0.6486,0.6810,0.5764], teds_s:[0.8713,0.7532,0.7642,0.8179,0.6707], order:[0.9140,0.8361,0.7972,0.7997,0.8053] },
+  medical: { title:'医疗行业 · 各模型评分对比', models:['TextIn xParse','MinerU','PaddleOCR-VL1.5','GLM-OCR','DeepSeek-OCR'], colors:['#2563EB','#8B5CF6','#F97316','#059669','#EC4899'], text:[0.9107,0.8403,0.8079,0.8670,0.8637], table:[0.8257,0.8021,0.8028,0.8080,0.7625], teds_s:[0.8959,0.8576,0.8625,0.8639,0.8211], order:[0.8421,0.8066,0.8232,0.8269,0.8423] }
 };
 let chart = null;
 function initChart(ind) {
@@ -644,19 +665,21 @@ function initChart(ind) {
   if (chart) chart.destroy();
   chart = new Chart(document.getElementById('benchChart').getContext('2d'), {
     type:'bar',
-    data:{ labels:['文本识别','表格还原','表格骨架','阅读顺序'], datasets:d.models.map((m,i)=>({ label:m, data:[d.text[i],d.table[i],d.teds_s[i],d.order[i]], backgroundColor:d.colors[i]+'20', borderColor:d.colors[i], borderWidth:2, borderRadius:4 })) },
+    data:{ labels:['text (ED)','table (TEDS)','table (TEDS-S)','reading_order (ED)'], datasets:d.models.map((m,i)=>({ label:m, data:[d.text[i],d.table[i],d.teds_s[i],d.order[i]], backgroundColor:d.colors[i]+'20', borderColor:d.colors[i], borderWidth:2, borderRadius:4 })) },
     options:{ responsive:true, maintainAspectRatio:false, scales:{ y:{ min:0.55, max:1.0, ticks:{color:'#94A3B8',font:{size:10},callback:v=>v.toFixed(2)}, grid:{color:'#F1F5F9'} }, x:{ ticks:{color:'#64748B',font:{size:10}}, grid:{display:false} } }, plugins:{ legend:{labels:{color:'#475569',font:{size:10},boxWidth:10,padding:10}}, tooltip:{callbacks:{label:c=>` ${c.dataset.label}: ${c.raw.toFixed(4)}`}} } }
   });
 }
 function renderScoreCards(ind) {
   const d = benchData[ind];
-  const keys=['text','table','teds_s','order'], labels=['文本识别','表格还原','表格骨架','阅读顺序'];
+  const keys=['text','table','teds_s','order'], labels=['text (ED)','table (TEDS)','table (TEDS-S)','reading_order (ED)'];
+  // find index of max value per metric
+  const maxIdx = keys.map(k => { let mx=-1,idx=0; d[k].forEach((v,i)=>{if(v>mx){mx=v;idx=i;}}); return idx; });
   const el = document.getElementById('score-cards'); el.innerHTML='';
   d.models.forEach((m,i) => {
     const scores=keys.map(k=>d[k][i]), avg=(scores.reduce((a,b)=>a+b,0)/scores.length).toFixed(4), isMain=i===0;
     const card=document.createElement('div');
     card.style.cssText=`background:${isMain?'#EFF6FF':'#fff'};border:1px solid ${isMain?'#BFDBFE':'#E2E8F0'};border-radius:10px;padding:12px;`;
-    card.innerHTML=`<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;"><span style="font-size:0.75rem;font-weight:700;color:${isMain?'#1D4ED8':'#0F172A'};">${m}</span><span style="font-size:0.65rem;background:${isMain?'#DBEAFE':'#F1F5F9'};color:${isMain?'#2563EB':'#64748B'};padding:2px 7px;border-radius:99px;font-weight:600;">均 ${avg}</span></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">${scores.map((s,j)=>`<div><div style="display:flex;justify-content:space-between;font-size:0.65rem;margin-bottom:2px;"><span style="color:#94A3B8;">${labels[j]}</span><span style="color:${isMain?'#2563EB':'#475569'};font-weight:600;">${s.toFixed(3)}</span></div><div class="sbar-wrap"><div class="sbar-fill" style="width:${((s-0.55)/0.45*100).toFixed(1)}%;background:${isMain?'#2563EB':'#CBD5E1'};"></div></div></div>`).join('')}</div>`;
+    card.innerHTML=`<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;"><span style="font-size:0.75rem;font-weight:700;color:${isMain?'#1D4ED8':'#0F172A'};">${m}</span><span style="font-size:0.65rem;background:${isMain?'#DBEAFE':'#F1F5F9'};color:${isMain?'#2563EB':'#64748B'};padding:2px 7px;border-radius:99px;font-weight:600;">平均 ${avg}</span></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">${scores.map((s,j)=>{const isTop=maxIdx[j]===i;return `<div><div style="display:flex;justify-content:space-between;font-size:0.65rem;margin-bottom:2px;"><span style="color:#94A3B8;">${labels[j]}</span><span style="color:${isTop?'#059669':(isMain?'#2563EB':'#475569')};font-weight:${isTop?'800':'600'};">${s.toFixed(3)}${isTop?' ▲':''}</span></div><div class="sbar-wrap"><div class="sbar-fill" style="width:${((s-0.55)/0.45*100).toFixed(1)}%;background:${isTop?'#059669':(isMain?'#2563EB':'#CBD5E1')};"></div></div></div>`;}).join('')}</div>`;
     el.appendChild(card);
   });
 }
