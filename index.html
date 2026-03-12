@@ -515,6 +515,16 @@ body {
           <div class="case-img-wrap" style="border-color:#BFDBFE;"><img src="images/image29.png" alt="TextIn" onclick="lbOpen(this)" style="min-height:140px;object-fit:cover;"><div class="case-img-caption" style="color:#2563EB;">TextIn xParse · 切边矫正，均还原 ✔</div></div>
         </div>
       </div>
+
+      <div style="margin-top:24px;">
+        <div style="font-size:0.875rem;font-weight:700;color:#0F172A;margin-bottom:14px;display:flex;align-items:center;gap:9px;"><span style="width:24px;height:24px;background:#EFF6FF;border:1px solid #BFDBFE;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.72rem;color:#2563EB;font-weight:800;flex-shrink:0;">2</span>体检报告扫描件识别（勾选框 + 蓝色印章文本）</div>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;">
+          <div class="case-img-wrap"><img src="images/image30.jpg" alt="样本" onclick="lbOpen(this)" style="min-height:140px;object-fit:cover;"><div class="case-img-caption" style="color:#64748B;">原始样本（扫描件）</div></div>
+          <div class="case-img-wrap"><img src="images/image31.jpg" alt="PaddleOCR-VL" onclick="lbOpen(this)" style="min-height:140px;object-fit:cover;"><div class="case-img-caption" style="color:#D97706;">PaddleOCR-VL1.5 · 表格结构基本正确，手写勾选框与图片文本存在瑕疵</div></div>
+          <div class="case-img-wrap"><img src="images/image32.jpg" alt="MinerU" onclick="lbOpen(this)" style="min-height:140px;object-fit:cover;"><div class="case-img-caption" style="color:#7C3AED;">MinerU · 表格结构正确，手写勾选框还原失败，图片内容以文本返回</div></div>
+          <div class="case-img-wrap" style="border-color:#BFDBFE;"><img src="images/image33.jpg" alt="TextIn" onclick="lbOpen(this)" style="min-height:140px;object-fit:cover;"><div class="case-img-caption" style="color:#2563EB;">TextIn xParse · 开启切边矫正，表格结构、勾选框及图片内容均完整还原 ✔</div></div>
+        </div>
+      </div>
     </section>
 
     <hr class="section-sep">
@@ -624,9 +634,9 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') lbClose(); }
 
 // Benchmark
 const benchData = {
-  finance: { title:'金融行业 · 各模型评分对比', models:['TextIn xParse','MinerU','PaddleOCR-VL1.5','GLM-OCR','DeepSeek-OCR'], colors:['#2563EB','#8B5CF6','#F97316','#059669','#EC4899'], text:[0.9381,0.9671,0.9435,0.9605,0.9618], table:[0.8831,0.8668,0.8447,0.7924,0.8060], teds_s:[0.9703,0.9408,0.9308,0.8698,0.8847], order:[0.9320,0.9493,0.9677,0.9599,0.9689] },
-  legal:   { title:'法律行业 · 各模型评分对比', models:['TextIn xParse','MinerU','PaddleOCR-VL1.5','GLM-OCR','DeepSeek-OCR'], colors:['#2563EB','#8B5CF6','#F97316','#059669','#EC4899'], text:[0.8266,0.8573,0.7334,0.8155,0.8191], table:[0.7609,0.6225,0.6486,0.6810,0.5764], teds_s:[0.9041,0.7532,0.7642,0.8179,0.6707], order:[0.8102,0.8361,0.7972,0.7997,0.8053] },
-  medical: { title:'医疗行业 · 各模型评分对比', models:['TextIn xParse','MinerU','PaddleOCR-VL1.5','GLM-OCR','DeepSeek-OCR'], colors:['#2563EB','#8B5CF6','#F97316','#059669','#EC4899'], text:[0.9036,0.8403,0.8079,0.8670,0.8637], table:[0.8222,0.8021,0.8028,0.8080,0.7625], teds_s:[0.8966,0.8576,0.8625,0.8639,0.8211], order:[0.8970,0.8066,0.8232,0.8269,0.8423] }
+  finance: { title:'金融行业 · 各模型评分对比', models:['TextIn-VLM-4.0.1','MinerU','PaddleOCR-VL1.5','GLM-OCR','DeepSeek-OCR'], colors:['#2563EB','#8B5CF6','#F97316','#059669','#EC4899'], text:[0.9202,0.9671,0.9435,0.9605,0.9618], table:[0.8936,0.8668,0.8447,0.7924,0.8060], teds_s:[0.9671,0.9408,0.9308,0.8698,0.8847], order:[0.9608,0.9493,0.9677,0.9599,0.9689] },
+  legal:   { title:'法律行业 · 各模型评分对比', models:['TextIn-VLM-4.0.1','MinerU','PaddleOCR-VL1.5','GLM-OCR','DeepSeek-OCR'], colors:['#2563EB','#8B5CF6','#F97316','#059669','#EC4899'], text:[0.9521,0.8573,0.7334,0.8155,0.8191], table:[0.7240,0.6225,0.6486,0.6810,0.5764], teds_s:[0.8713,0.7532,0.7642,0.8179,0.6707], order:[0.9140,0.8361,0.7972,0.7997,0.8053] },
+  medical: { title:'医疗行业 · 各模型评分对比', models:['TextIn-VLM-4.0.1','MinerU','PaddleOCR-VL1.5','GLM-OCR','DeepSeek-OCR'], colors:['#2563EB','#8B5CF6','#F97316','#059669','#EC4899'], text:[0.9107,0.8403,0.8079,0.8670,0.8637], table:[0.8257,0.8021,0.8028,0.8080,0.7625], teds_s:[0.8959,0.8576,0.8625,0.8639,0.8211], order:[0.8421,0.8066,0.8232,0.8269,0.8423] }
 };
 let chart = null;
 function initChart(ind) {
