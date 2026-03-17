@@ -416,6 +416,94 @@ body {
         <div class="bench-wrap"><div style="font-size:0.875rem;font-weight:700;color:#0F172A;margin-bottom:16px;" id="bench-title">金融行业 · 各模型评分对比</div><div style="position:relative;height:280px;"><canvas id="benchChart"></canvas></div></div>
         <div id="score-cards" style="display:flex;flex-direction:column;gap:10px;"></div>
       </div>
+
+      <!-- 处理效率对比 -->
+      <div style="margin-top:36px;">
+        <h3 style="font-size:1rem;font-weight:700;color:#0F172A;margin-bottom:6px;">处理效率对比</h3>
+        <p style="font-size:0.82rem;color:#64748B;margin-bottom:20px;line-height:1.7;">统一测试集 <strong>198 张图片</strong>，GPU 为 NVIDIA L4，分别对比 <strong>单实例</strong>（1 实例 · 1 并发）与 <strong>多实例</strong>（2 实例 · 2 并发）场景下各产品的处理吞吐量。</p>
+
+        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;">
+          <!-- 单实例 -->
+          <div style="background:#fff;border:1px solid #E2E8F0;border-radius:12px;overflow:hidden;">
+            <div style="background:#F8FAFF;padding:10px 16px;border-bottom:1px solid #E2E8F0;font-size:0.8rem;font-weight:700;color:#0F172A;">单实例（1 实例 · 1 并发）</div>
+            <table style="width:100%;border-collapse:collapse;font-size:0.8rem;">
+              <thead><tr style="background:#F1F5F9;">
+                <th style="padding:8px 12px;text-align:left;color:#64748B;font-weight:600;">产品</th>
+                <th style="padding:8px 12px;text-align:right;color:#64748B;font-weight:600;">总耗时</th>
+                <th style="padding:8px 12px;text-align:right;color:#64748B;font-weight:600;">页/秒</th>
+                <th style="padding:8px 12px;text-align:right;color:#64748B;font-weight:600;">速度比</th>
+              </tr></thead>
+              <tbody>
+                <tr style="background:#EFF6FF;border-top:1px solid #E2E8F0;">
+                  <td style="padding:10px 12px;font-weight:700;color:#2563EB;">TextIn xParse</td>
+                  <td style="padding:10px 12px;text-align:right;font-weight:700;color:#1D4ED8;">326 s</td>
+                  <td style="padding:10px 12px;text-align:right;font-weight:700;color:#1D4ED8;">0.61</td>
+                  <td style="padding:10px 12px;text-align:right;"><span style="background:#DBEAFE;color:#1D4ED8;font-size:0.7rem;font-weight:700;padding:2px 8px;border-radius:99px;">基准</span></td>
+                </tr>
+                <tr style="border-top:1px solid #E2E8F0;">
+                  <td style="padding:10px 12px;color:#0F172A;">MinerU</td>
+                  <td style="padding:10px 12px;text-align:right;color:#64748B;">1418 s</td>
+                  <td style="padding:10px 12px;text-align:right;color:#64748B;">0.14</td>
+                  <td style="padding:10px 12px;text-align:right;"><span style="background:#FEE2E2;color:#DC2626;font-size:0.7rem;font-weight:700;padding:2px 8px;border-radius:99px;">慢 4.3×</span></td>
+                </tr>
+                <tr style="border-top:1px solid #E2E8F0;">
+                  <td style="padding:10px 12px;color:#0F172A;">PaddleOCR</td>
+                  <td style="padding:10px 12px;text-align:right;color:#64748B;">1524 s</td>
+                  <td style="padding:10px 12px;text-align:right;color:#64748B;">0.13</td>
+                  <td style="padding:10px 12px;text-align:right;"><span style="background:#FEE2E2;color:#DC2626;font-size:0.7rem;font-weight:700;padding:2px 8px;border-radius:99px;">慢 4.7×</span></td>
+                </tr>
+              </tbody>
+            </table>
+            <div style="padding:14px 16px;border-top:1px solid #E2E8F0;display:flex;flex-direction:column;gap:8px;">
+              <div><div style="display:flex;justify-content:space-between;font-size:0.72rem;margin-bottom:3px;"><span style="color:#2563EB;font-weight:600;">TextIn xParse</span><span style="color:#64748B;">326 s</span></div><div style="background:#E2E8F0;border-radius:99px;height:8px;"><div style="width:21.4%;background:#2563EB;height:8px;border-radius:99px;"></div></div></div>
+              <div><div style="display:flex;justify-content:space-between;font-size:0.72rem;margin-bottom:3px;"><span style="color:#64748B;">MinerU</span><span style="color:#64748B;">1418 s</span></div><div style="background:#E2E8F0;border-radius:99px;height:8px;"><div style="width:93%;background:#94A3B8;height:8px;border-radius:99px;"></div></div></div>
+              <div><div style="display:flex;justify-content:space-between;font-size:0.72rem;margin-bottom:3px;"><span style="color:#64748B;">PaddleOCR</span><span style="color:#64748B;">1524 s</span></div><div style="background:#E2E8F0;border-radius:99px;height:8px;"><div style="width:100%;background:#94A3B8;height:8px;border-radius:99px;"></div></div></div>
+            </div>
+          </div>
+
+          <!-- 多实例 -->
+          <div style="background:#fff;border:1px solid #E2E8F0;border-radius:12px;overflow:hidden;">
+            <div style="background:#F8FAFF;padding:10px 16px;border-bottom:1px solid #E2E8F0;font-size:0.8rem;font-weight:700;color:#0F172A;">多实例（2 实例 · 2 并发）</div>
+            <table style="width:100%;border-collapse:collapse;font-size:0.8rem;">
+              <thead><tr style="background:#F1F5F9;">
+                <th style="padding:8px 12px;text-align:left;color:#64748B;font-weight:600;">产品</th>
+                <th style="padding:8px 12px;text-align:right;color:#64748B;font-weight:600;">总耗时</th>
+                <th style="padding:8px 12px;text-align:right;color:#64748B;font-weight:600;">页/秒</th>
+                <th style="padding:8px 12px;text-align:right;color:#64748B;font-weight:600;">速度比</th>
+              </tr></thead>
+              <tbody>
+                <tr style="background:#EFF6FF;border-top:1px solid #E2E8F0;">
+                  <td style="padding:10px 12px;font-weight:700;color:#2563EB;">TextIn xParse</td>
+                  <td style="padding:10px 12px;text-align:right;font-weight:700;color:#1D4ED8;">248 s</td>
+                  <td style="padding:10px 12px;text-align:right;font-weight:700;color:#1D4ED8;">0.80</td>
+                  <td style="padding:10px 12px;text-align:right;"><span style="background:#DBEAFE;color:#1D4ED8;font-size:0.7rem;font-weight:700;padding:2px 8px;border-radius:99px;">基准</span></td>
+                </tr>
+                <tr style="border-top:1px solid #E2E8F0;">
+                  <td style="padding:10px 12px;color:#0F172A;">MinerU</td>
+                  <td style="padding:10px 12px;text-align:right;color:#64748B;">726 s</td>
+                  <td style="padding:10px 12px;text-align:right;color:#64748B;">0.27</td>
+                  <td style="padding:10px 12px;text-align:right;"><span style="background:#FEE2E2;color:#DC2626;font-size:0.7rem;font-weight:700;padding:2px 8px;border-radius:99px;">慢 2.9×</span></td>
+                </tr>
+                <tr style="border-top:1px solid #E2E8F0;">
+                  <td style="padding:10px 12px;color:#0F172A;">PaddleOCR</td>
+                  <td style="padding:10px 12px;text-align:right;color:#64748B;">825 s</td>
+                  <td style="padding:10px 12px;text-align:right;color:#64748B;">0.24</td>
+                  <td style="padding:10px 12px;text-align:right;"><span style="background:#FEE2E2;color:#DC2626;font-size:0.7rem;font-weight:700;padding:2px 8px;border-radius:99px;">慢 3.3×</span></td>
+                </tr>
+              </tbody>
+            </table>
+            <div style="padding:14px 16px;border-top:1px solid #E2E8F0;display:flex;flex-direction:column;gap:8px;">
+              <div><div style="display:flex;justify-content:space-between;font-size:0.72rem;margin-bottom:3px;"><span style="color:#2563EB;font-weight:600;">TextIn xParse</span><span style="color:#64748B;">248 s</span></div><div style="background:#E2E8F0;border-radius:99px;height:8px;"><div style="width:30.1%;background:#2563EB;height:8px;border-radius:99px;"></div></div></div>
+              <div><div style="display:flex;justify-content:space-between;font-size:0.72rem;margin-bottom:3px;"><span style="color:#64748B;">MinerU</span><span style="color:#64748B;">726 s</span></div><div style="background:#E2E8F0;border-radius:99px;height:8px;"><div style="width:88%;background:#94A3B8;height:8px;border-radius:99px;"></div></div></div>
+              <div><div style="display:flex;justify-content:space-between;font-size:0.72rem;margin-bottom:3px;"><span style="color:#64748B;">PaddleOCR</span><span style="color:#64748B;">825 s</span></div><div style="background:#E2E8F0;border-radius:99px;height:8px;"><div style="width:100%;background:#94A3B8;height:8px;border-radius:99px;"></div></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:#EFF6FF;border:1px solid #BFDBFE;border-radius:10px;padding:12px 16px;font-size:0.8rem;color:#1E40AF;margin-top:14px;line-height:1.8;">
+          测试环境 GPU 为 NVIDIA L4，测试集共 198 张图片。TextIn xParse 单实例速度领先竞品 <strong>4× 以上</strong>，扩展至多实例后仍保持 <strong>2.9~3.3×</strong> 的吞吐优势，且扩展收益（326 s → 248 s）也优于其他方案。
+        </div>
+      </div>
     </section>
 
     <hr class="section-sep">
