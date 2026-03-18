@@ -149,20 +149,97 @@ body {
 .fade-in { opacity: 0; transform: translateY(16px); transition: opacity 0.5s, transform 0.5s; }
 .fade-in.visible { opacity: 1; transform: none; }
 
+/* ─── Tablet（≤ 900px）─── */
+@media (max-width: 900px) {
+  /* 4 列案例图 → 2 列 */
+  [style*="repeat(4,1fr)"] { grid-template-columns: repeat(2,1fr) !important; }
+}
+
+/* ─── Mobile（≤ 768px）─── */
 @media (max-width: 768px) {
   #sidebar { transform: translateX(-100%); transition: transform 0.25s; }
   #sidebar.open { transform: translateX(0); }
   #sidebar-overlay.open { display: block; }
   #main { margin-left: 0; }
   #burger { display: flex; }
-  .content-wrap { padding: 60px 20px 60px; }
-  .hero-banner { padding: 48px 20px; }
-  .section-title { font-size: 1.5rem; }
+  .content-wrap { padding: 60px 16px 60px; }
+  .hero-banner { padding: 48px 16px 40px; }
+  .section-title { font-size: 1.4rem; }
+  .section-lead { font-size: 0.95rem; }
+  /* 3 列 → 1 列 */
+  [style*="repeat(3,1fr)"] { grid-template-columns: 1fr !important; }
+  /* span 3 / span 2 → 全宽 */
+  [style*="grid-column:span 3"],
+  [style*="grid-column: span 3"],
+  [style*="grid-column:span 2"],
+  [style*="grid-column: span 2"] { grid-column: 1 / -1 !important; }
+  /* 2 列布局 → 1 列 */
+  [style*="repeat(2,1fr)"],
+  [style*="grid-template-columns:1fr 1fr"],
+  [style*="grid-template-columns: 1fr 1fr"],
+  [style*="1.3fr 1fr"] { grid-template-columns: 1fr !important; }
+  /* Hero 大标题 */
+  h1[style] { font-size: 1.9rem !important; }
+  /* 行业 Tab 横向滚动 */
+  .ind-tab-bar {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .ind-tab-bar::-webkit-scrollbar { display: none; }
+  .ind-tab { white-space: nowrap; padding: 10px 14px; font-size: 0.8rem; }
+  /* 功能 Tab 横向滚动 */
+  .ftab-bar {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .ftab-bar::-webkit-scrollbar { display: none; }
+  .ftab { white-space: nowrap; font-size: 0.75rem; padding: 7px 10px; }
+  /* 图表高度适配 */
+  #benchChart { max-height: 220px !important; }
+  /* TCO 成本表横向滚动（已有 overflow-x:auto 父容器，min-width 保留）*/
+  .cost-table { font-size: 0.78rem; }
+  /* 案例图片说明文字换行 */
+  .case-img-caption { font-size: 0.68rem; }
 }
+
+/* ─── 超小屏（≤ 400px）─── */
+@media (max-width: 400px) {
+  /* 4 列案例图在极窄屏改为 1 列 */
+  [style*="repeat(4,1fr)"] { grid-template-columns: 1fr !important; }
+  .section-title { font-size: 1.25rem; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .fade-in { opacity:1; transform:none; transition:none; }
   * { transition-duration: 0.01ms !important; }
 }
+
+/* ─── Print ─── */
+@media print {
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  #sidebar, #burger, #sidebar-overlay, #lightbox { display: none !important; }
+  #main { margin-left: 0 !important; }
+  .content-wrap { max-width: 100% !important; padding: 0 24px 40px !important; }
+  .hero-banner { padding: 40px 24px !important; }
+  .fade-in { opacity: 1 !important; transform: none !important; }
+  section { break-inside: avoid; page-break-inside: avoid; }
+  .section-sep { break-after: avoid; }
+  canvas { max-width: 100% !important; }
+  .case-img-wrap img { cursor: default; }
+  a { color: inherit !important; text-decoration: none !important; }
+  /* 展开所有功能 Tab */
+  .ftab-bar { display: none !important; }
+  .ftab-content { display: block !important; overflow-x: visible !important; }
+  .ftab-content + .ftab-content { margin-top: 24px; border-top: 1px solid #E2E8F0; padding-top: 20px; }
+  /* 评分卡单列 */
+  #score-cards > div > div[style*="grid-template-columns"] { grid-template-columns: 1fr 1fr !important; }
+}
+
+
 </style>
 </head>
 <body>
@@ -178,6 +255,7 @@ body {
   <svg viewBox="0 0 24 24" fill="none" stroke="#475569" stroke-width="2" width="18" height="18"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
 </button>
 <div id="sidebar-overlay" onclick="toggleSidebar()"></div>
+
 
 <!-- ═══ SIDEBAR ═══ -->
 <aside id="sidebar">
@@ -781,7 +859,8 @@ function renderScoreCards(ind) {
     const scores=keys.map(k=>d[k][i]), avg=(scores.reduce((a,b)=>a+b,0)/scores.length).toFixed(4), isMain=i===0;
     const card=document.createElement('div');
     card.style.cssText=`background:${isMain?'#EFF6FF':'#fff'};border:1px solid ${isMain?'#BFDBFE':'#E2E8F0'};border-radius:10px;padding:12px;`;
-    card.innerHTML=`<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;"><span style="font-size:0.75rem;font-weight:700;color:${isMain?'#1D4ED8':'#0F172A'};">${m}</span><span style="font-size:0.65rem;background:${isMain?'#DBEAFE':'#F1F5F9'};color:${isMain?'#2563EB':'#64748B'};padding:2px 7px;border-radius:99px;font-weight:600;">平均 ${avg}</span></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">${scores.map((s,j)=>{const isTop=maxIdx[j]===i;return `<div><div style="display:flex;justify-content:space-between;font-size:0.65rem;margin-bottom:2px;"><span style="color:#94A3B8;">${labels[j]}</span><span style="color:${isTop?'#059669':(isMain?'#2563EB':'#475569')};font-weight:${isTop?'800':'600'};">${s.toFixed(3)}${isTop?' ▲':''}</span></div><div class="sbar-wrap"><div class="sbar-fill" style="width:${((s-0.55)/0.45*100).toFixed(1)}%;background:${isTop?'#059669':(isMain?'#2563EB':'#CBD5E1')};"></div></div></div>`;}).join('')}</div>`;
+    const scoreGridCols = window.innerWidth <= 768 ? '1fr' : '1fr 1fr';
+    card.innerHTML=`<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;"><span style="font-size:0.75rem;font-weight:700;color:${isMain?'#1D4ED8':'#0F172A'};">${m}</span><span style="font-size:0.65rem;background:${isMain?'#DBEAFE':'#F1F5F9'};color:${isMain?'#2563EB':'#64748B'};padding:2px 7px;border-radius:99px;font-weight:600;">平均 ${avg}</span></div><div style="display:grid;grid-template-columns:${scoreGridCols};gap:6px;">${scores.map((s,j)=>{const isTop=maxIdx[j]===i;return `<div><div style="display:flex;justify-content:space-between;font-size:0.65rem;margin-bottom:2px;"><span style="color:#94A3B8;">${labels[j]}</span><span style="color:${isTop?'#059669':(isMain?'#2563EB':'#475569')};font-weight:${isTop?'800':'600'};">${s.toFixed(3)}${isTop?' ▲':''}</span></div><div class="sbar-wrap"><div class="sbar-fill" style="width:${((s-0.55)/0.45*100).toFixed(1)}%;background:${isTop?'#059669':(isMain?'#2563EB':'#CBD5E1')};"></div></div></div>`;}).join('')}</div>`;
     el.appendChild(card);
   });
 }
@@ -804,6 +883,15 @@ const fiObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isInters
 document.querySelectorAll('.fade-in').forEach(el=>fiObs.observe(el));
 
 window.addEventListener('DOMContentLoaded',()=>{ initChart('finance'); renderScoreCards('finance'); });
+
+
+window.addEventListener('resize', ()=>{
+  const activeInd = document.querySelector('.ind-tab.active');
+  if (activeInd) {
+    const ind = activeInd.getAttribute('onclick').match(/'(\w+)'/)?.[1] || 'finance';
+    renderScoreCards(ind);
+  }
+});
 </script>
 </body>
 </html>
